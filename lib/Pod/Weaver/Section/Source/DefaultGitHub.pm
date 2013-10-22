@@ -68,4 +68,9 @@ dist.ini:
 
 This section plugin adds a SOURCE section.
 
+
+=head1 SEE ALSO
+
+L<Pod::Weaver::Section::SourceGitHub>
+
 =cut
