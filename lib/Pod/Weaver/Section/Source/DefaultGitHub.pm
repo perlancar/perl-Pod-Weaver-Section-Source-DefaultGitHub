@@ -15,7 +15,7 @@ sub weave_section {
   my ($self, $document, $input) = @_;
 
   my $repo_url = $input->{distmeta}{resources}{repository};
-  if (!$repo) {
+  if (!$repo_url) {
       my $file = ".git/config";
       die "Can't find git config file $file" unless -f $file;
       my $ct = do {
