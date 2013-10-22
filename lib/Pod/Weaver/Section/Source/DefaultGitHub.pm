@@ -23,7 +23,7 @@ sub weave_section {
           open my($fh), "<", $file or die "Can't open $file: $!";
           ~~<$fh>;
       };
-      $ct =~ m!github\.com:([^/]+)/()\.git!
+      $ct =~ m!github\.com:([^/]+)/(.+)\.git!
           or die "Can't parse github address in $file";
       $repo_url = "https://github.com/$1/$2";
   }
