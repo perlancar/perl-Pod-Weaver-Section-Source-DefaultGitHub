@@ -1,5 +1,10 @@
 Revision history for Pod-Weaver-Section-Source-DefaultGitHub
 
+0.02    2012-10-22 (SHARYANTO)
+
+        - Fix regex.
+
+
 0.01    2012-10-22 (SHARYANTO)
 
         - First release.
