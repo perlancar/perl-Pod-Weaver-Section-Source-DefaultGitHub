@@ -61,12 +61,13 @@ To specify a source repository other than C<https://github.com/USER/REPO>, in
 dist.ini:
 
  [MetaResources]
- homepage=http://example.com/
+ repository=http://example.com/
 
 
 =head1 DESCRIPTION
 
-This section plugin adds a SOURCE section.
+This section plugin adds a SOURCE section, using C<repository> metadata or (if
+not specified) GitHub.
 
 
 =head1 SEE ALSO
