@@ -44,7 +44,7 @@ sub weave_section {
 
 no Moose;
 1;
-# ABSTRACT: Add a SOURCE section
+# ABSTRACT: Add a SOURCE section (repository defaults to GitHub)
 
 =for Pod::Coverage weave_section
 
