@@ -1,15 +1,20 @@
 Revision history for Pod-Weaver-Section-Source-DefaultGitHub
 
-0.03    2012-10-24 (SHARYANTO)
+0.04    2013-11-05 (SHARYANTO)
+
+        - Fix getting URL.
+
+
+0.03    2013-10-24 (SHARYANTO)
 
         - No functional changes. Fix POD.
 
 
-0.02    2012-10-22 (SHARYANTO)
+0.02    2013-10-22 (SHARYANTO)
 
         - Fix regex.
 
 
-0.01    2012-10-22 (SHARYANTO)
+0.01    2013-10-22 (SHARYANTO)
 
         - First release.
