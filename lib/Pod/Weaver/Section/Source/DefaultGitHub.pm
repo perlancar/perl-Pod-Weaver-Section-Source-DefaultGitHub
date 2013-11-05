@@ -15,6 +15,7 @@ sub weave_section {
   my ($self, $document, $input) = @_;
 
   my $repo_url = $input->{distmeta}{resources}{repository};
+  if (ref($repo_url) eq 'HASH') { $repo_url = $repo_url->{web} }
   if (!$repo_url) {
       my $file = ".git/config";
       die "Can't find git config file $file" unless -f $file;
