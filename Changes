@@ -1,5 +1,10 @@
 Revision history for Pod-Weaver-Section-Source-DefaultGitHub
 
+0.05    2015-01-07 (PERLANCAR)
+
+        - Add 'text' attribute to allow text to be customized (Erik Carlsson).
+
+
 0.04    2013-11-05 (SHARYANTO)
 
         - Fix getting URL.
