@@ -9,6 +9,12 @@ with 'Pod::Weaver::Role::Section';
 
 use Moose::Autobox;
 
+has text => (
+    is => 'rw',
+    isa => 'Str',
+    default => 'Source repository is at L<%s>.',
+);
+
 # VERSION
 
 sub weave_section {
@@ -28,7 +34,7 @@ sub weave_section {
           or die "Can't parse github address in $file";
       $repo_url = "https://github.com/$1/$2";
   }
-  my $text = "Source repository is at L<$repo_url>.";
+  my $text = sprintf $self->text, $repo_url;
 
   #$text = Text::Wrap::wrap(q{}, q{}, $text);
 
@@ -69,6 +75,15 @@ dist.ini:
 
 This section plugin adds a SOURCE section, using C<repository> metadata or (if
 not specified) GitHub.
+
+
+=head1 ATTRIBUTES
+
+=head2 text
+
+The text that is added. C<%s> is replaced by the repository url.
+
+Default: C<Source repository is at LE<lt>%sE<gt>.>
 
 
 =head1 SEE ALSO
