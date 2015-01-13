@@ -1,46 +1,39 @@
 package Pod::Weaver::Section::Source::DefaultGitHub;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use Moose;
 #use Text::Wrap ();
+with 'Pod::Weaver::Role::AddTextToSection';
 with 'Pod::Weaver::Role::Section';
 
 #use Log::Any '$log';
 
 use Moose::Autobox;
 
-# VERSION
-
 sub weave_section {
-  my ($self, $document, $input) = @_;
+    my ($self, $document, $input) = @_;
 
-  my $repo_url = $input->{distmeta}{resources}{repository};
-  if (ref($repo_url) eq 'HASH') { $repo_url = $repo_url->{web} }
-  if (!$repo_url) {
-      my $file = ".git/config";
-      die "Can't find git config file $file" unless -f $file;
-      my $ct = do {
-          local $/;
-          open my($fh), "<", $file or die "Can't open $file: $!";
-          ~~<$fh>;
-      };
-      $ct =~ m!github\.com:([^/]+)/(.+)\.git!
-          or die "Can't parse github address in $file";
-      $repo_url = "https://github.com/$1/$2";
-  }
-  my $text = "Source repository is at L<$repo_url>.";
+    my $repo_url = $input->{distmeta}{resources}{repository};
+    if (ref($repo_url) eq 'HASH') { $repo_url = $repo_url->{web} }
+    if (!$repo_url) {
+        my $file = ".git/config";
+        die "Can't find git config file $file" unless -f $file;
+        my $ct = do {
+            local $/;
+            open my($fh), "<", $file or die "Can't open $file: $!";
+            ~~<$fh>;
+        };
+        $ct =~ m!github\.com:([^/]+)/(.+)\.git!
+            or die "Can't parse github address in $file";
+        $repo_url = "https://github.com/$1/$2";
+    }
+    my $text = "Source repository is at L<$repo_url>.";
 
-  #$text = Text::Wrap::wrap(q{}, q{}, $text);
-
-  $document->children->push(
-    Pod::Elemental::Element::Nested->new({
-      command  => 'head1',
-      content  => 'SOURCE',
-      children => [
-        Pod::Elemental::Element::Pod5::Ordinary->new({ content => $text }),
-      ],
-    }),
-  );
+    #$text = Text::Wrap::wrap(q{}, q{}, $text);
+    $self->add_text_to_section($document, $text, 'SOURCE');
 }
 
 no Moose;
