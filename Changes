@@ -1,5 +1,12 @@
 Revision history for Pod-Weaver-Section-Source-DefaultGitHub
 
+0.06    2015-04-01 (PERLANCAR)
+
+	- Remove Moose::Autobox.
+
+	- [Refactor] Use PWR::AddTextToSection.
+
+
 0.05    2015-01-07 (PERLANCAR)
 
         - Add 'text' attribute to allow text to be customized (Erik Carlsson).
