@@ -26,7 +26,7 @@ sub weave_section {
             or die "Can't parse github address in $file";
         $repo_url = "https://github.com/$1/$2";
     }
-    my $text = "Source repository is at L<$repo_url>.";
+    my $text = "Source repository is at L<$repo_url>.\n\n";
 
     #$text = Text::Wrap::wrap(q{}, q{}, $text);
     $self->add_text_to_section($document, $text, 'SOURCE');
