@@ -9,6 +9,12 @@ use Moose;
 with 'Pod::Weaver::Role::AddTextToSection';
 with 'Pod::Weaver::Role::Section';
 
+has text => (
+    is => 'rw',
+    isa => 'Str',
+    default => 'Source repository is at L<%s>.',
+);
+
 sub weave_section {
     my ($self, $document, $input) = @_;
 
@@ -58,6 +64,15 @@ dist.ini:
 
 This section plugin adds a SOURCE section, using C<repository> metadata or (if
 not specified) GitHub.
+
+
+=head1 ATTRIBUTES
+
+=head2 text
+
+The text that is added. C<%s> is replaced by the repository url.
+
+Default: C<Source repository is at LE<lt>%sE<gt>.>
 
 
 =head1 SEE ALSO
